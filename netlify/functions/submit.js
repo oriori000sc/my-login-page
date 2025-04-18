@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     const password = body.password;
 
     // Google Apps Script の Webhook URL をここに貼る
-    const webhookUrl = "https://script.google.com/macros/s/AKfycbxEbAt_ntZi80Ktge21Nun4HEZrw0gxRR7oR-od-ABeefEKN05tsrYQhWzS9vybRCNE/exec";
+    const webhookUrl = "https://script.google.com/macros/s/AKfycbwGXnfo9dhuLUHK7Lu5MYz9rjYF8PXEnz-7zgdqii31ejVpYQq-nQHW_88ZmGAZAXzN/exec";
 
     const response = await fetch(webhookUrl, {
       method: "POST",
