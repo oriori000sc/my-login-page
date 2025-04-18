@@ -1,30 +1,29 @@
-const fetch = require("node-fetch"); // Netlifyでは必要な場合あり
+const fetch = require("node-fetch"); // 外部API呼び出しに必要
 
 exports.handler = async (event, context) => {
-  const body = JSON.parse(event.body);
-  const password = body.password;
-
-  const webhookUrl = "https://script.google.com/macros/s/AKfycbxA4MDu5Se9om5wdXLkX0VrtrdleNJgGm8k0uWeZopSMCSdsMtiQozbamH0wAxqJLfR/exec";
-
   try {
+    const body = JSON.parse(event.body);
+    const password = body.password;
+
+    // Google Apps Script の Webhook URL をここに貼る
+    const webhookUrl = "https://script.google.com/macros/s/あなたのURL/exec";
+
     const response = await fetch(webhookUrl, {
       method: "POST",
-      body: JSON.stringify({ password }),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password })
     });
 
-    const text = await response.text();
+    const result = await response.text();
 
     return {
       statusCode: 200,
-      body: `結果：${text}`
+      body: `送信成功: ${result}`
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: `エラー: ${error.toString()}`
+      body: `エラー: ${error.message}`
     };
   }
 };
