@@ -4,7 +4,7 @@ exports.handler = async (event, context) => {
   const body = JSON.parse(event.body);
   const password = body.password;
 
-  const webhookUrl = "あなたのスプレッドシートWebhookのURLをここに貼る";
+  const webhookUrl = "https://script.google.com/macros/s/AKfycbxA4MDu5Se9om5wdXLkX0VrtrdleNJgGm8k0uWeZopSMCSdsMtiQozbamH0wAxqJLfR/exec";
 
   try {
     const response = await fetch(webhookUrl, {
