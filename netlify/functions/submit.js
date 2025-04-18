@@ -4,7 +4,7 @@ exports.handler = async (event) => {
   const body = JSON.parse(event.body);
   const password = body.password;
 
-  const webhookUrl = "https://script.google.com/macros/s/XXXXXXXXXXXXXXXXXXX/exec";
+  const webhookUrl = "https://script.google.com/macros/s/AKfycbzlJXeZR52FFJdUgi_LVIX7t34GOMgHkR5QPUevppcvLGbRKlZb5dhguSBc3iNXxt7B/exec";
 
   const response = await fetch(webhookUrl, {
     method: "POST",
